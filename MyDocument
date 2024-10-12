@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My document</title>
+    <style>
+        /* CSS for three-column layout */
+        .tweet-column {
+            float: left;
+            width: 20%; /* Each column takes up 20% of the width */
+            box-sizing: border-box; /* Include padding and border in the width */
+            padding: 0 10px; /* Add some padding to each column */
+        }
+        /* Clearfix to prevent content overlap */
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+    <body>
+    <h1>Personal MCS!</h1>
+        <!-- First Column -->
+    <div class="tweet-column">
+        <!-- Embedded Tweets related to Climate Change -->
+
+         <h2>Doc.1</h2>
+
+    <!-- Links to External Websites -->
+    <ul>
+        <li><a href="https://research.psu.ac.th/news/eventnews/20135/" target="_blank">FF 2569</a></li>
+        <li><a href="https://st.sat.psu.ac.th/" target="_blank">RMDA</a></li>
+        <li><a href="https://sis.psu.ac.th/" target="_blank">SIS</a></li>
+        <li><a href="https://plainning.psu.ac.th/documents/information/annualreport/PSU-Report2" target="_blank">รายงานประจำปี 2566 PSU</a></li>
+        <li><a href="https://www.scopus.com/freelookup/form/author.uri" target="_blank">Scopus</a></li>
+        <li><a href="https://www.scopus.com/search/form.uri?display=basic#basic" target="_blank">Scopus2</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1laPg_uRNtNVh3nuk3U8PBtLKV5IieMlb" target="_blank">โครงการ2569</a></li>      
+        <li><a href="https://vcs.psu.ac.th/index.php?r=site%2Flogin" target="_blank">Zoom</a></li>      
+        <li><a href="https://tor.psu.ac.th" target="_blank">TOR</a></li>      
+        <li><a href="https://regist.pn.psu.ac.th/main/?page=calendar" target="_blank">PSU Calendar</a></li>      
+    </ul>
+    </div>
+
+    <!-- Second Column -->
+    <div class="tweet-column">
+        <!-- Embedded Tweets related to News and Updates -->
+        <h2>Doc.2</h2>
+        <li><a href="https://shorturl.at/dsCO7" target="_blank">จองห้องอาคาร 51C</a></li>
+        <li><a href="https://www.jstor.org/subject/mathematics" target="_blank">JSTOR</a></li>
+        <li><a href="https://www.bestcolleges.com/blog/best-online-resources-academic-research/" target="_blank">Undergraduate Research</a></li>
+        <li><a href="https://www.nso.go.th/nsoweb/nso/statistics_and_indicators?impt_branch=309" target="_blank">สสช</a></li>
+        <li><a href="https://www.mots.go.th/news/category/411" target="_blank">สถิตินักท่องเที่ยว</a></li>
+        <li><a href="https://www.weather.gov/" target="_">US weather</a></li>
+        <li><a href="https://psl.noaa.gov/data/gridded/data.cpc.globalprecip.html" target="_blank">...pcpt</a></li>      
+       <li><a href="https://psl.noaa.gov/data/gridded/data.cpc.globaltemp.html" target="_blank">...temp</a></li>      
+        <li><a href="https://neo.gsfc.nasa.gov/" target="_blank">nasa.pcp</a></li>      
+        <li><a href="https://neo.gsfc.nasa.gov/view.php?datasetId=GPM_3IMERGM" target="_blank">nasa.pcpc</a></li>      
+        <li><a href="https://mesonet.agron.iastate.edu/request/daily.phtml" target="_blank">daily.data</a></li>      
+        </div> 
+
+
+            <!-- Third Column -->
+    <div class="tweet-column">
+        <!-- Embedded Tweets related to News and Updates -->
+        <h2>Doc.3</h2>
+        <li><a href="https://wichit2s.gitlab.io/numer/ch07/index.html" target="_blank">Numerical M.</a></li>
+        <li><a href="https://www.english-room.com/" target="_blank">English Room</a></li>
+        <li><a href="https://chatgpt.com/" target="_blank">Chat</a></li>
+        <li><a href="https://plainning.psu.ac.th/documents/information/annualreport/PSU-Report2" target="_blank">U</a></li>
+        <li><a href="https://www.scopus.com/freelookup/form/author.uri" target="_blank">s</a></li>
+        <li><a href="https://www.scopus.com/sources.uri" target="_blank">scopus</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1laPg_uRNtNVh3nuk3U8PBtLKV5IieMlb" target="_blank"></a></li>      
+        <li><a href="https://vcs.psu.ac.th/index.php?r=site%2Flogin" target="_blank">m</a></li>      
+        <li><a href="https://pvd.psu.ac.th" target="_blank">PVF</a></li>      
+        <li><a href="https://drasmajabeen.com/working-sci-hub-proxy-links/" target="_blank">Hubs</a></li>      
+        <li><a href="https://www.dorkgpt.com/" target="_blank">Dork</a></li>      
+        
+        
+        <li><a href="https://rattikan596.github.io/class/indexratti.html" target="_blank">Back to Menu</a></li>      
+        </div> 
+
+                    <!-- Fourth Column -->
+    <div class="tweet-column">
+        <!-- Embedded Tweets related to News and Updates -->
+        <h2>Doc.4</h2>
+        <li><a href="https://mis.sat.psu.ac.th/datacenter/index.php" target="_blank">Data Center</a></li>
+        <li><a href="https://www.english-room.com/" target="_blank">English Room</a></li>
+        <li><a href="https://chatgpt.com/" target="_blank">Chat</a></li>
+        <li><a href="https://plainning.psu.ac.th/documents/information/annualreport/PSU-Report2" target="_blank">U</a></li>
+        <li><a href="https://www.scopus.com/freelookup/form/author.uri" target="_blank">s</a></li>
+        <li><a href="https://www.scopus.com/sources.uri" target="_blank">scopus</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1laPg_uRNtNVh3nuk3U8PBtLKV5IieMlb" target="_blank"></a></li>      
+        <li><a href="https://vcs.psu.ac.th/index.php?r=site%2Flogin" target="_blank">m</a></li>      
+        <li><a href="https://pvd.psu.ac.th" target="_blank">PVF</a></li>      
+        <li><a href="https://drasmajabeen.com/working-sci-hub-proxy-links/" target="_blank">Hubs</a></li>      
+        <li><a href="https://www.dorkgpt.com/" target="_blank">Dork</a></li>      
+        
+        
+        <li><a href="https://rattikan596.github.io/class/indexratti.html" target="_blank">Back to Menu</a></li>      
+        </div> 
+
+            <!-- Clearfix to prevent content overlap -->
+    <div class="clearfix"></div>
+
+    <!-- Include Twitter widgets JavaScript -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</body>
+</html>
