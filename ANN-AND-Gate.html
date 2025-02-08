@@ -1,0 +1,132 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AND Gate Neural Network</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body>
+
+<h2>AND Gate Neural Network</h2>
+
+<!-- ปุ่ม Train & Continue Training -->
+<button onclick="trainModel()">Train New Model</button>
+<button onclick="continueTraining()">Continue Training</button>
+<button onclick="saveModel()">Save Model</button>
+<br><br>
+
+<!-- ปุ่มโหลดโมเดลจากไฟล์ -->
+<input type="file" id="modelUpload" multiple>
+<button onclick="loadModelFromFile()">Load Model</button>
+<br><br>
+
+<!-- ปุ่มทดสอบโมเดล -->
+<button onclick="testModel(1,1)">Test [1,1]</button>
+<button onclick="testModel(0,1)">Test [0,1]</button>
+<button onclick="testModel(1,0)">Test [1,0]</button>
+<button onclick="testModel(0,0)">Test [0,0]</button>
+<p id="result">Result: </p>
+
+<script>
+let model; // ตัวแปรเก็บโมเดล
+const EPOCHS = 1000; // จำนวนรอบในการเทรน
+
+// 📌 1. ฟังก์ชันฝึกโมเดลใหม่ (Train New Model)
+async function trainModel() {
+    console.log("🚀 Training New Model...");
+    
+    // สร้างโมเดล ANN ใหม่
+    model = tf.sequential();
+    model.add(tf.layers.dense({ units: 4, activation: 'relu', inputShape: [2] }));
+    model.add(tf.layers.dense({ units: 1, activation: 'sigmoid' })); 
+
+    // กำหนดค่าการเรียนรู้
+    model.compile({ optimizer: 'adam', loss: 'binaryCrossentropy', metrics: ['accuracy'] });
+
+    await trainAndLog();
+}
+
+// 📌 2. ฟังก์ชันฝึกโมเดลต่อ (Continue Training)
+async function continueTraining() {
+    if (!model) {
+        document.getElementById("result").innerText = "Load Model First!";
+        return;
+    }
+
+    console.log("🚀 Continuing Training...");
+    
+    // ✅ สำคัญ! ต้อง `compile()` โมเดลอีกครั้งก่อนเทรนต่อ
+    model.compile({ optimizer: 'adam', loss: 'binaryCrossentropy', metrics: ['accuracy'] });
+
+    await trainAndLog();
+}
+
+// 📌 3. ฟังก์ชันฝึกโมเดล (ใช้ร่วมกัน)
+async function trainAndLog() {
+    const xs = tf.tensor2d([[0,0], [0,1], [1,0], [1,1]]);
+    const ys = tf.tensor2d([[0], [0], [0], [1]]);
+
+    await model.fit(xs, ys, { epochs: EPOCHS });
+    
+    console.log("✅ Training Completed!");
+    document.getElementById("result").innerText = "Training Completed!";
+}
+
+// 📌 4. ฟังก์ชันบันทึกโมเดล (Save Model)
+async function saveModel() {
+    if (!model) {
+        alert("Train the model first!");
+        return;
+    }
+    
+    await model.save('downloads://my_and_gate_model');
+    console.log("✅ Model Saved!");
+    document.getElementById("result").innerText = "Model Saved!";
+}
+
+// 📌 5. ฟังก์ชันโหลดโมเดลจากไฟล์ (Load Model)
+async function loadModelFromFile() {
+    const inputElement = document.getElementById('modelUpload');
+
+    if (inputElement.files.length < 2) {
+        alert("กรุณาเลือกทั้ง .json และ .bin");
+        return;
+    }
+
+    const jsonFile = Array.from(inputElement.files).find(file => file.name.endsWith('.json'));
+    const weightsFile = Array.from(inputElement.files).find(file => file.name.endsWith('.bin'));
+
+    if (!jsonFile || !weightsFile) {
+        alert("กรุณาเลือกไฟล์ที่ถูกต้อง");
+        return;
+    }
+
+    try {
+        model = await tf.loadLayersModel(tf.io.browserFiles([jsonFile, weightsFile]));
+        console.log("✅ Model Loaded Successfully!");
+        document.getElementById("result").innerText = "Model Loaded!";
+    } catch (error) {
+        console.error("❌ Error loading model:", error);
+        document.getElementById("result").innerText = "Error loading model!";
+    }
+}
+
+// 📌 6. ฟังก์ชันทดสอบโมเดล (Test Model)
+async function testModel(x1, x2) {
+    if (!model) {
+        document.getElementById("result").innerText = "Load or Train Model First!";
+        return;
+    }
+    
+    let input = tf.tensor2d([[x1, x2]]);
+    let prediction = model.predict(input);
+    let result = await prediction.data();
+    
+    document.getElementById("result").innerText = `AND(${x1},${x2}) = ${result[0].toFixed(4)}`;
+    console.log(`AND(${x1},${x2}) = ${result[0].toFixed(4)}`);
+}
+</script>
+
+</body>
+</html>
+
